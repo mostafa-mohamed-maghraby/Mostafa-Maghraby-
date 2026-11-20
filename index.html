@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎬%3C/text%3E%3C/svg%3E">
+<title>Mostafa Maghraby – Video Editor &amp; Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chonburi&family=Bagel+Fat+One&family=Gilda+Display&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1ed;--card:#efe6e1;--ink:#2a0f12;--red:#c41e24;--soft:#8a6f70;--line:rgba(42,15,18,.15);--glow:#f2b9b6;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#190b0d;--card:#2a1518;--ink:#f6e9e5;--soft:#b99a98;--line:rgba(246,233,229,.18);--glow:#5a1519}}
+:root[data-theme="dark"]{--bg:#190b0d;--card:#2a1518;--ink:#f6e9e5;--soft:#b99a98;--line:rgba(246,233,229,.18);--glow:#5a1519}
+html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Gilda Display",Georgia,serif;line-height:1.7;overflow-x:hidden}
+h1,h2,h3,.btn,.pill{font-family:"Bagel Fat One","Arial Black",sans-serif;font-weight:400;letter-spacing:.01em}
+a{color:inherit;text-decoration:none}
+section{padding:90px 24px;max-width:960px;margin:0 auto}
+h2{font-size:clamp(28px,4vw,40px);margin:0 0 8px;line-height:1.15}
+h2+.bar{width:60px;height:3px;background:var(--red);margin-bottom:36px}
+.sub{color:var(--soft);margin:0 0 6px}
+/* splash */
+#splash{position:fixed;inset:0;background:var(--bg);z-index:99;display:grid;place-items:center;text-align:center;transition:opacity .6s .9s,visibility 0s 1.5s}
+#splash.off{opacity:0;visibility:hidden}
+#splash b{display:block;font:400 clamp(44px,10vw,72px)/1 "Bagel Fat One",sans-serif;letter-spacing:.12em;color:var(--ink)}
+#splash i{display:block;font-style:normal;color:var(--red);letter-spacing:.3em;font-size:13px;margin-top:10px}
+#splash::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(var(--glow),transparent 70%);opacity:.7}
+/* nav */
+nav{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));left:50%;transform:translate3d(-50%,0,0);z-index:50;display:flex;gap:6px;align-items:center;background:color-mix(in srgb,var(--bg) 95%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 6px 24px rgba(0,0,0,.18);scrollbar-width:none;border:1px solid var(--line);border-radius:40px;padding:6px;max-width:calc(100vw - 20px);overflow-x:auto}
+nav a{padding:7px 16px;border-radius:30px;font-size:15px;white-space:nowrap;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+nav a.on{background:var(--red);color:#fff}
+nav button,.cv{border:0;background:var(--ink);color:var(--bg);border-radius:30px;padding:8px 14px;cursor:pointer;font:inherit;font-size:14px;white-space:nowrap}
+.cv{box-shadow:2px 2px 0 var(--red)}
+/* hero */
+#home{max-width:none;padding:0;min-height:100vh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:radial-gradient(ellipse at 0% 0%,#c8352a 0%,rgba(200,53,42,0) 38%),radial-gradient(ellipse at 100% 100%,rgba(200,53,42,.4),transparent 42%),linear-gradient(160deg,#2c100e,#170908 50%,#220e0c)}
+#home h1{font:400 clamp(54px,13vw,170px)/1 Chonburi,Georgia,serif;margin:110px 0 0;text-align:center;position:relative;z-index:1;padding:0 12px}
+.hero{display:grid;grid-template-columns:1fr clamp(250px,30vw,430px) 1fr;align-items:center;gap:20px;padding:0 5vw;margin-top:calc(min(13vw,170px)*-.65);position:relative;z-index:2;color:#f1ebe6}
+.hero img{width:100%;display:block;filter:drop-shadow(0 18px 28px rgba(120,10,15,.35))}
+.hero h3{font-size:clamp(20px,2.6vw,32px);line-height:1.2;margin:0 0 14px}
+.hero h3 em{color:var(--red);font-style:normal}
+.hero p{max-width:300px;margin:0 0 18px}
+.right{text-align:left}
+.btn{display:inline-block;background:var(--ink);color:var(--bg);padding:11px 20px;border-radius:30px;box-shadow:2px 3px 0 var(--red);margin:0 8px 8px 0;font-size:15px}
+.btn.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.live{display:inline-block;width:9px;height:9px;border-radius:50%;background:#3cb371;margin-right:8px}
+.banner{background:#e0402f;color:#fff;overflow:hidden;white-space:nowrap;padding:14px 0;margin-top:-35px;position:relative;z-index:3}
+.banner span{display:inline-block;animation:slide 28s linear infinite;font:400 22px "Chonburi",serif}
+.banner span i{font-style:normal;margin:0 22px}
+@keyframes slide{to{transform:translateX(-50%)}}
+.hero .strip2{position:absolute;left:-3%;width:106%;bottom:27%;z-index:0;margin:0;background:#e0402f;transform:rotate(-4deg)}.strip2 span{animation-direction:reverse}
+.hero>*:not(.strip2){position:relative;z-index:1}.hero>div:not(.strip2){align-self:start;padding-top:calc(min(13vw,170px)*.98)}
+#home h1{color:#f1ebe6}.hero h3 em{color:#ff5b45}.hero .btn,.hero .btn.alt{background:#f6efe9;color:#2a0f12;border:0;box-shadow:2px 3px 0 #c8352a}
+/* about */
+.about{display:grid;grid-template-columns:240px 1fr;gap:40px;align-items:center}
+.about img{width:100%;border-radius:50%;border:5px solid var(--card);box-shadow:0 14px 40px rgba(120,10,15,.3)}
+.panel{background:var(--card);border-radius:20px;padding:28px;border:1px solid var(--line)}
+.panel h3{font-size:28px;margin:6px 0}
+.panel h3 em,.big em{color:var(--red);font-style:normal}
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px;margin-top:40px}
+.tool{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 10px;text-align:center;font-size:15px}
+.tool b{display:block;font:400 28px Chonburi,serif;color:var(--red)}
+/* timeline */
+.tl{border-left:2px solid var(--red);margin-left:6px}
+.tl div{padding:0 0 26px 28px;position:relative}
+.tl div::before{content:"";position:absolute;left:-7px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--red)}
+.tl h3{margin:0;font-size:20px}.tl small{color:var(--soft);font-size:15px}.tl p{margin:4px 0 0}
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;position:relative;touch-action:pan-y}
+.card .top{height:130px;display:grid;place-items:center;background:var(--red);color:#fff;font:400 34px Chonburi,serif;position:relative;overflow:hidden;transition:letter-spacing .4s}
+.card:nth-child(2) .top{background:var(--ink);color:var(--bg)}.card:nth-child(3) .top{background:#8f1318}.card:nth-child(4) .top{background:var(--glow);color:var(--ink)}
+.card .in{padding:18px 20px 22px}.card h3{margin:0 0 8px;font-size:19px}
+.card ul{margin:0;padding-left:18px;color:var(--soft)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;margin-top:40px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:18px;text-align:center;padding:26px}
+.stat b{display:block;font:400 48px Chonburi,serif}
+.card.rv.in{transform:perspective(800px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--ly,0px))}
+.card.hot{transition:opacity .7s,transform .12s ease-out,box-shadow .3s;--ly:-8px;box-shadow:0 18px 40px rgba(120,10,15,.28)}
+.card::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(220px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.35),transparent 60%)}
+.card.hot::after{opacity:1}.card.hot .top{letter-spacing:.14em}
+.card li{transition:transform .3s}.card li:nth-child(2){transition-delay:.05s}.card li:nth-child(3){transition-delay:.1s}.card.hot li{transform:translateX(7px)}
+.fx{position:absolute;inset:0;pointer-events:none}.fx i{position:absolute;font-style:normal;opacity:0}
+.bar{left:0;bottom:14px;height:5px;width:0;background:currentColor;border-radius:3px}.hot .bar{opacity:.9;animation:fill 1.4s ease-out forwards}
+.play{right:14px;top:10px;font-size:18px}.hot .play{opacity:1;animation:pulse .6s infinite alternate}
+.h{bottom:-10px;font-size:20px;color:#ff5a64}.h1{left:16%}.h2{left:48%}.h3{left:78%}
+.hot .h{animation:rise 1.4s infinite}.hot .h2{animation-delay:.35s}.hot .h3{animation-delay:.7s}
+.cur{left:16px;top:12px;font:400 24px monospace}.hot .cur{opacity:1;animation:blink .6s steps(1) infinite}
+.tag{right:14px;bottom:10px;font:400 20px monospace}.hot .tag{animation:slidein .5s forwards}
+.ring{left:50%;top:50%;width:20px;height:20px;margin:-10px;border:2px solid currentColor;border-radius:50%}.hot .ring{animation:ping 1.4s infinite}.hot .r2{animation-delay:.7s}
+@keyframes fill{to{width:100%}}@keyframes pulse{to{transform:scale(1.35)}}
+@keyframes rise{0%{opacity:0;transform:translateY(0) scale(.6)}20%{opacity:1}100%{opacity:0;transform:translateY(-130px) scale(1.3)}}
+@keyframes blink{50%{opacity:0}}@keyframes slidein{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}}
+@keyframes ping{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(9)}}
+.about img{transition:transform .6s,box-shadow .5s,border-radius .6s;cursor:pointer;touch-action:pan-y}
+.about img.hot{transition:transform .12s ease-out,box-shadow .4s,border-radius .6s;transform:perspective(700px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(1.07);animation:morph 2.2s ease-in-out infinite alternate,ripple 1.5s infinite}
+@keyframes morph{0%{border-radius:50%}100%{border-radius:38% 62% 56% 44%/52% 40% 60% 48%}}
+@keyframes ripple{0%{box-shadow:0 0 0 0 rgba(196,30,36,.55),0 20px 50px rgba(120,10,15,.4)}100%{box-shadow:0 0 0 30px rgba(196,30,36,0),0 20px 50px rgba(120,10,15,.4)}}
+/* work */
+.work{display:flex;flex-direction:column;justify-content:flex-end;min-height:220px;padding:22px;border-radius:18px;color:#fff;background:linear-gradient(160deg,#c41e24,#4a0b0e)}
+.work:nth-child(2){background:linear-gradient(160deg,#3b2a5a,#150c2a)}
+.work small{opacity:.8}.work h3{margin:4px 0 10px;font-size:22px}
+.work{position:relative;overflow:hidden;touch-action:pan-y;min-height:250px}
+.work>*:not(.wfx){position:relative;z-index:2}
+.wfx{position:absolute;inset:0;pointer-events:none;z-index:1}
+.work.rv.in{transform:perspective(800px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--ly,0px))}
+.work.hot{transition:opacity .7s,transform .12s ease-out,box-shadow .3s;--ly:-8px;box-shadow:0 20px 44px rgba(0,0,0,.35)}
+.work::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;opacity:0;transition:opacity .3s;background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.28),transparent 60%)}
+.work.hot::after{opacity:1}
+.work h3{transition:letter-spacing .4s}.work.hot h3{letter-spacing:.05em}.work .btn{transition:transform .25s}.work.hot .btn{transform:translateY(-3px)}
+.sheen{position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.3),transparent);transform:skewX(-15deg);opacity:0}
+.hot .sheen{animation:sheen 1.1s ease-out}
+.film{position:absolute;left:-10px;right:-10px;height:10px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.28) 0 12px,transparent 12px 26px);opacity:.6}
+.film.t{top:8px}.film.b{bottom:8px}.hot .film{animation:film .7s linear infinite}
+.vplay{position:absolute;right:22px;top:26px;width:56px;height:56px;border-radius:50%;border:2px solid rgba(255,255,255,.7);display:grid;place-items:center;font-size:20px;padding-left:3px;opacity:.7;transition:transform .3s,opacity .3s}
+.vplay::after{content:"";position:absolute;inset:-2px;border:2px solid #fff;border-radius:50%;opacity:0}
+.hot .vplay{transform:scale(1.2);opacity:1}.hot .vplay::after{animation:ping2 1.2s infinite}
+.win{position:absolute;right:20px;top:26px;width:52%;max-width:170px;padding:22px 10px 10px;border-radius:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);display:grid;gap:7px;transition:transform .4s}
+.win b{position:absolute;top:7px;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.7)}
+.win b:nth-of-type(1){left:9px}.win b:nth-of-type(2){left:19px}.win b:nth-of-type(3){left:29px}
+.win i{display:block;height:6px;border-radius:3px;background:rgba(255,255,255,.55);width:var(--w)}
+.win i:nth-of-type(1){--w:90%}.win i:nth-of-type(2){--w:55%}.win i:nth-of-type(3){--w:75%}
+.hot .win{transform:translateY(-4px) rotate(-3deg)}
+.hot .win i{animation:type 1.6s steps(14) infinite}.hot .win i:nth-of-type(2){animation-delay:.25s}.hot .win i:nth-of-type(3){animation-delay:.5s}
+.cur2{position:absolute;right:34px;top:78px;font-size:18px;opacity:0}.hot .cur2{opacity:1;animation:wander 2.4s ease-in-out infinite}
+.code{position:absolute;left:22px;top:22px;font:400 24px monospace;opacity:.45;transition:transform .3s,opacity .3s}.hot .code{opacity:1;transform:translateX(8px)}
+@keyframes sheen{from{left:-60%;opacity:1}to{left:130%;opacity:1}}
+@keyframes film{to{background-position:26px 0}}
+@keyframes ping2{0%{opacity:.8;transform:scale(1)}100%{opacity:0;transform:scale(1.9)}}
+@keyframes type{0%{width:0}60%,100%{width:var(--w)}}
+@keyframes wander{0%,100%{transform:translate(-70px,50px)}50%{transform:translate(0,0)}}
+/* contact */
+.contact{display:grid;grid-template-columns:1.3fr 1fr;gap:20px}
+form{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;display:grid;gap:12px}
+label{font-size:14px;color:var(--soft);display:grid;gap:4px}
+input,textarea,select{font:inherit;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+form button{font:inherit;border:0;border-radius:12px;padding:13px;background:var(--ink);color:var(--bg);box-shadow:0 3px 0 var(--red);cursor:pointer}
+.info{display:grid;gap:12px;align-content:start}
+.info a,.info div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;display:block}
+.info small{display:block;color:var(--soft)}
+.cta{background:var(--glow);border:1px solid var(--red);border-radius:28px;box-shadow:6px 6px 0 var(--ink);text-align:center;padding:50px 20px;margin:0 24px}
+.cta h2{margin:0 0 10px}
+footer{max-width:960px;margin:40px auto 0;padding:0 24px 40px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--soft);font-size:15px}
+.rv{opacity:0;transform:translateY(24px);transition:.7s}.rv.in{opacity:1;transform:none}
+.socs a{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:12px;background:var(--card);border:1px solid var(--line);margin:4px 6px 0 0;font:700 15px "Bagel Fat One",sans-serif}
+.info .follow{padding:14px 18px}.info .follow a{padding:0;display:inline-grid}
+@media(min-width:761px){#home h1{white-space:nowrap;font-size:min(12vw,170px)}}
+@media(max-width:1100px) and (min-width:761px){.hero>div:not(.strip2){padding-top:calc(min(12vw,170px)*.78)}.hero p{max-width:240px;font-size:15px}.hero .btn{padding:9px 15px;font-size:14px;margin-right:6px}.hero .strip2{bottom:22%}}
+@media(max-width:760px){.hero>div:not(.strip2){padding-top:0}.hero .strip2{bottom:auto;top:300px}.hero{grid-template-columns:1fr;text-align:center;margin-top:-10px}.hero img{-webkit-mask-image:linear-gradient(#000 82%,transparent);mask-image:linear-gradient(#000 82%,transparent);max-width:290px;margin:0 auto;order:-1}.hero p{margin:0 auto 16px}.right{text-align:center}.about,.contact{grid-template-columns:1fr}.about img{max-width:220px;margin:0 auto}nav{gap:0;padding:5px;top:calc(8px + env(safe-area-inset-top,0px))}nav a{padding:7px 8px;font-size:12.5px}nav button{padding:7px 10px;font-size:13px;margin-left:2px}.cv{display:none}}
+@media(prefers-reduced-motion:reduce){.wfx{display:none}.work.rv.in{transform:none}.about img.hot{animation:none;transform:none}.fx{display:none}.card.rv.in{transform:none}.banner span{animation:none}.rv{opacity:1;transform:none;transition:none}#splash{transition:none}}
+</style>
+</head>
+<body>
+<div id="splash"><div><b>MOSTAFA</b><i>VIDEO EDITOR &amp; DEVELOPER</i></div></div>
+<nav>
+<a href="#home" class="on">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#experience">Experience</a><a href="#works">Works</a><a href="#contact">Contact</a>
+<button id="theme" aria-label="Toggle dark mode">◐</button><a class="cv" href="assets/Mostafa_Maghraby_CV.pdf" download="Mostafa_Maghraby_CV.pdf">Download CV</a>
+</nav>
+
+<section id="home">
+<h1>Mostafa Maghraby</h1>
+<div class="hero">
+<div class="banner strip2"><span id="mq2"></span></div>
+<div><h3>I EDIT VIDEOS</h3><p><span class="live"></span>Available for new projects</p><p>I turn raw footage and ideas into clean, engaging videos and sites, with experience in editing, content and IT.</p><a class="btn" href="#contact">Start your project</a><a class="btn alt" href="#works">View my work</a></div>
+<img src="assets/hero.webp" alt="Mostafa Maghraby">
+<div class="right"><h3>I TURN YOUR IDEAS<br>INTO <em>DIGITAL IMPACT</em>.</h3></div>
+</div>
+<div class="banner"><span id="mq"></span></div>
+</section>
+
+<section id="about">
+<p class="sub">Who am I</p><h2>A VIDEO EDITOR &amp; DEVELOPER</h2><div class="bar"></div>
+<div class="about rv"><img src="assets/about.jpg" alt="Portrait of Mostafa">
+<div class="panel"><h3>Who is <em>Mostafa</em>?</h3>
+<p>A Computer Science undergraduate at the University of East London (European Universities in Egypt), with a background in technology, digital media and business.</p>
+<p>I work in video editing, content creation, social media management and digital communication, with technical knowledge in IT support, website development, networking and cybersecurity.</p>
+<p>I combine creativity with technical ability, and I keep learning.</p></div></div>
+<h2 style="margin-top:56px;font-size:26px">TOOLS I WORK WITH</h2>
+<div class="tools"><div class="tool"><b>Pr</b>Premiere Pro</div><div class="tool"><b>Ps</b>Photoshop</div><div class="tool"><b>&lt;/&gt;</b>Web development</div><div class="tool"><b>IT</b>IT support</div><div class="tool"><b>AI</b>AI tools</div></div>
+</section>
+
+<section id="services">
+<p class="sub">What I offer</p><h2>MY SERVICES</h2><div class="bar"></div>
+<div class="grid">
+<div class="card rv"><div class="top">VIDEO</div><div class="in"><h3>Video editing</h3><ul><li>Social and promo videos</li><li>Cuts, pacing and sound</li><li>Made in Premiere Pro</li></ul></div></div>
+<div class="card rv"><div class="top">SOCIAL</div><div class="in"><h3>Content &amp; social media</h3><ul><li>Content creation</li><li>Posting organization</li><li>AI-assisted ideas</li></ul></div></div>
+<div class="card rv"><div class="top">WEB</div><div class="in"><h3>Website development</h3><ul><li>Clean, responsive sites</li><li>Portfolios and stores</li><li>Built for your brand</li></ul></div></div>
+<div class="card rv"><div class="top">IT</div><div class="in"><h3>IT support</h3><ul><li>Help desk experience</li><li>Networking basics</li><li>Cybersecurity fundamentals</li></ul></div></div>
+</div>
+<div class="stats"><div class="stat rv"><b data-n="6">0</b>Roles held</div><div class="stat rv"><b data-n="3" data-s="+">0</b>Years working</div><div class="stat rv"><b data-n="2">0</b>Languages</div></div>
+</section>
+
+<section id="experience">
+<p class="sub">My path</p><h2>EXPERIENCE</h2><div class="bar"></div>
+<div class="tl">
+<div class="rv"><h3>Video Editor – Moogle Marketing</h3><small>January 2026 – November 2026</small></div>
+<div class="rv"><h3>Freelance Video Editor – Brandzilla Communications</h3><small>Freelance projects</small></div>
+<div class="rv"><h3>Real Estate Sales Agent – Resva Company, USA (online)</h3><small>August 2025 – October 2025</small></div>
+<div class="rv"><h3>IT Help Desk Intern – National Energy Services Reunited Corp</h3><small>22 July 2025 – 31 July 2025</small></div>
+<div class="rv"><h3>IT Intern – Sadeem Company</h3><small>1 July 2025 – 31 July 2025</small></div>
+<div class="rv"><h3>Content Creator &amp; Social Media Organizer – Retro 80s Fashion</h3><small>2023 – 2025</small></div>
+</div>
+<p style="margin-top:20px"><b class="pill">Education:</b> University of East London (UEL), European Universities in Egypt. High school: ElKods IGCSE School (K.I.S), 2018.</p>
+</section>
+
+<section id="works">
+<p class="sub">Selected work</p><h2>MY WORK</h2><div class="bar"></div>
+<div class="grid">
+<div class="work rv"><small>Video</small><h3>Vimeo portfolio</h3><a class="btn" href="https://vimeo.com/user258451638?fl=pp&amp;fe=sh" target="_blank" rel="noopener">Watch</a></div>
+<div class="work rv"><small>Website</small><h3>H.S.M-Store</h3><a class="btn" href="https://hsmstore.github.io/H.S.M-Store/" target="_blank" rel="noopener">Visit</a></div>
+</div>
+</section>
+
+<section id="contact">
+<p class="sub">Let’s talk</p><h2>CONTACT ME</h2><div class="bar"></div>
+<div class="contact">
+<form id="f"><label>Name<input name="n" required></label><label>Email<input type="email" name="e" required></label>
+<label>Service needed<select name="s"><option>Video editing</option><option>Content &amp; social media</option><option>Website development</option><option>IT support</option></select></label>
+<label>Project details<textarea name="m" rows="4" required></textarea></label><button type="submit">Send message</button></form>
+<div class="info"><div><small>Address</small>ElMasrawaya compound, 90 street, 5th settlement, New Cairo, Egypt</div>
+<a href="mailto:mostafamohamedmaghraby@gmail.com"><small>Email</small>mostafamohamedmaghraby@gmail.com</a>
+<a href="tel:+201033137003"><small>Phone</small>01033137003</a>
+<a href="https://wa.me/201033137003"><small>WhatsApp</small>Message me now</a><a href="assets/Mostafa_Maghraby_CV.pdf" download="Mostafa_Maghraby_CV.pdf"><small>CV</small>Download my CV</a><div class="follow"><small>Follow me</small><span class="socs"><a href="https://www.instagram.com/mostafa_maghraby_/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a><a href="https://www.linkedin.com/in/mostafa-maghraby-171637343" target="_blank" rel="noopener" aria-label="LinkedIn"><b>in</b></a><a href="https://vimeo.com/user258451638?fl=pp&amp;fe=sh" target="_blank" rel="noopener" aria-label="Vimeo"><b>V</b></a></span></div></div>
+</div>
+</section>
+
+<div class="cta"><p class="sub">Ready to start?</p><h2>LET’S BUILD SOMETHING DIFFERENT</h2><p>Got a project or an idea? I’d love to hear from you.</p><a class="btn" href="#contact">Start a project</a><a class="btn alt" href="https://wa.me/201033137003">Say hello</a></div>
+<footer><span>©Mostafa Maghraby. All rights reserved.</span><span>Video Editor &amp; Developer · New Cairo, Egypt</span></footer>
+
+
+<script>
+var t="Video Editing ✦ Photoshop ✦ Website Development ✦ IT Support ✦ Social Media ✦ Content Creation ✦ ".replace(/✦/g,"<i>✦</i>");
+document.getElementById("mq").innerHTML=t+t+t+t;document.getElementById("mq2").innerHTML=t+t+t+t;
+setTimeout(function(){document.getElementById("splash").classList.add("off")},1200);
+var r=document.documentElement;
+document.getElementById("theme").onclick=function(){var d=r.getAttribute("data-theme")==="dark"||(!r.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme:dark)").matches);r.setAttribute("data-theme",d?"light":"dark")};
+var reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+function count(b,on){var n=+b.dataset.n,sx=b.dataset.s||"";cancelAnimationFrame(b.raf);if(reduce){b.textContent=n+sx;return}if(!on){b.textContent="0";return}var t0=performance.now();(function f(t){var k=Math.min((t-t0)/1200,1);b.textContent=Math.round(n*(1-Math.pow(1-k,3)))+(k===1?sx:"");if(k<1)b.raf=requestAnimationFrame(f)})(t0)}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){var on=e.isIntersecting;e.target.classList.toggle("in",on);var b=e.target.querySelector("b[data-n]");if(b)count(b,on)})},{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+document.querySelectorAll(".rv").forEach(function(e){io.observe(e)});
+(function(){var im=document.querySelector(".about img"),off;if(!im)return;
+function on(){clearTimeout(off);im.classList.add("hot")}
+function mv(e){var r=im.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;im.style.setProperty("--ry",((x-.5)*18)+"deg");im.style.setProperty("--rx",((.5-y)*18)+"deg")}
+function out(e){off=setTimeout(function(){im.classList.remove("hot");im.style.setProperty("--rx","0deg");im.style.setProperty("--ry","0deg")},e&&e.pointerType==="touch"?1200:0)}
+im.addEventListener("pointerenter",on);im.addEventListener("pointerdown",function(e){on();mv(e)});im.addEventListener("pointermove",function(e){on();mv(e)});im.addEventListener("pointerleave",out);im.addEventListener("pointerup",out);im.addEventListener("pointercancel",out)})();
+var FX=['<i class="bar"></i><i class="play">▶</i>','<i class="h h1">♥</i><i class="h h2">♥</i><i class="h h3">♥</i>','<i class="cur">|</i><i class="tag">&lt;/&gt;</i>','<i class="ring"></i><i class="ring r2"></i>'];
+document.querySelectorAll("#services .card").forEach(function(c,k){c.querySelector(".top").insertAdjacentHTML("beforeend",'<span class="fx">'+(FX[k]||"")+'</span>');var off;
+function on(){clearTimeout(off);c.classList.add("hot")}
+function mv(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;c.style.setProperty("--ry",((x-.5)*14)+"deg");c.style.setProperty("--rx",((.5-y)*14)+"deg");c.style.setProperty("--mx",x*100+"%");c.style.setProperty("--my",y*100+"%")}
+function out(e){off=setTimeout(function(){c.classList.remove("hot");c.style.setProperty("--rx","0deg");c.style.setProperty("--ry","0deg")},e&&e.pointerType==="touch"?1000:0)}
+c.addEventListener("pointerenter",on);c.addEventListener("pointerdown",function(e){on();mv(e)});c.addEventListener("pointermove",function(e){on();mv(e)});c.addEventListener("pointerleave",out);c.addEventListener("pointerup",out);c.addEventListener("pointercancel",out)});
+var WFX=['<span class="film t"></span><span class="film b"></span><span class="vplay">▶</span><span class="sheen"></span>','<span class="win"><b></b><b></b><b></b><i></i><i></i><i></i></span><span class="cur2">➤</span><span class="code">&lt;/&gt;</span><span class="sheen"></span>'];
+document.querySelectorAll("#works .work").forEach(function(c,k){c.insertAdjacentHTML("afterbegin",'<span class="wfx">'+(WFX[k]||'<span class="sheen"></span>')+'</span>');var off;
+function on(){clearTimeout(off);c.classList.add("hot")}
+function mv(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;c.style.setProperty("--ry",((x-.5)*12)+"deg");c.style.setProperty("--rx",((.5-y)*12)+"deg");c.style.setProperty("--mx",x*100+"%");c.style.setProperty("--my",y*100+"%")}
+function out(e){off=setTimeout(function(){c.classList.remove("hot");c.style.setProperty("--rx","0deg");c.style.setProperty("--ry","0deg")},e&&e.pointerType==="touch"?1100:0)}
+c.addEventListener("pointerenter",on);c.addEventListener("pointerdown",function(e){on();mv(e)});c.addEventListener("pointermove",function(e){on();mv(e)});c.addEventListener("pointerleave",out);c.addEventListener("pointerup",out);c.addEventListener("pointercancel",out)});
+document.addEventListener("click",function(e){var a=e.target.closest?e.target.closest('a[href^="#"]'):null;if(!a)return;var h=a.getAttribute("href");if(!h||h.length<2)return;var t=document.getElementById(h.slice(1));if(!t)return;e.preventDefault();t.scrollIntoView({behavior:"smooth",block:"start"})});
+var links=document.querySelectorAll("nav a[href^='#']:not(.cv)"),secs=[].map.call(links,function(a){return document.querySelector(a.getAttribute("href"))});
+addEventListener("scroll",function(){var y=scrollY+140,k=0;secs.forEach(function(s,i){if(s.offsetTop<=y)k=i});links.forEach(function(a,i){a.classList.toggle("on",i===k)})});
+document.getElementById("f").onsubmit=function(e){e.preventDefault();var f=e.target;var msg="Hello Mostafa, I'm "+f.n.value.trim()+".\n\nEmail: "+f.e.value.trim()+"\nService needed: "+f.s.value+"\n\nProject details:\n"+f.m.value.trim();var url="https://wa.me/201033137003?text="+encodeURIComponent(msg);var w=window.open(url,"_blank");if(!w)location.href=url};
+</script>
+</body>
+</html>
